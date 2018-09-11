@@ -28,14 +28,6 @@ development headers required to use libefivar.
 
 %prep
 %setup -q -n %{name}-%{version}
-#git init
-#git config user.email "%{name}-owner@fedoraproject.org"
-#git config user.name "Fedora Ninjas"
-#git add .
-#git commit -a -q -m "%{version} baseline."
-#git am %{patches} </dev/null
-#git config --unset user.email
-#git config --unset user.name
 
 %build
 make libdir=%{_libdir} bindir=%{_bindir} CFLAGS="$RPM_OPT_FLAGS -flto" LDFLAGS="$RPM_LD_FLAGS -flto"

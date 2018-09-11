@@ -64,14 +64,6 @@ UEFI binaries used by libfwup.
 
 %prep
 %setup -q -n %{name}-%{version}
-#git init
-#git config user.email "%{name}-owner@fedoraproject.org"
-#git config user.name "Fedora Ninjas"
-#git add .
-#git commit -a -q -m "%{version} baseline."
-#git am %{patches} </dev/null
-#git config --unset user.email
-#git config --unset user.name
 
 %build
 echo "DEBUG1#####$RPM_OPT_FLAGS"
@@ -103,7 +95,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %{!?_licensedir:%global license %%doc}
 %license COPYING
-# %%doc README
 %{_bindir}/fwupdate
 %{_datadir}/locale/en/fwupdate.po
 %doc %{_mandir}/man1/*
@@ -122,8 +113,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*.so.*
 %{_datadir}/locale/en/libfwup.po
 %{_unitdir}/fwupdate-cleanup.service
-#%attr(0755,root,root) %dir %{_datadir}/fwupdate/
-#%config(noreplace) %ghost %{_datadir}/fwupdate/done
 %attr(0755,root,root) %dir %{_libexecdir}/fwupdate/
 %{_libexecdir}/fwupdate/cleanup
 
