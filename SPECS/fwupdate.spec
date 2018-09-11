@@ -88,7 +88,6 @@ rm -rf $RPM_BUILD_ROOT
        includedir=%{_includedir} libexecdir=%{_libexecdir} \
        datadir=%{_datadir}
 
-echo "DEBUG3#####$RPM_OPT_FLAGS"
 %post libs
 /sbin/ldconfig
 %systemd_post fwupdate-cleanup.service
@@ -96,7 +95,6 @@ echo "DEBUG3#####$RPM_OPT_FLAGS"
 %preun libs
 %systemd_preun fwupdate-cleanup.service
 
-echo "\n DEBUG4"
 %postun libs
 /sbin/ldconfig
 %systemd_postun_with_restart pesign.service
@@ -124,8 +122,8 @@ echo "\n DEBUG4"
 %{_libdir}/*.so.*
 %{_datadir}/locale/en/libfwup.po
 %{_unitdir}/fwupdate-cleanup.service
-%attr(0755,root,root) %dir %{_datadir}/fwupdate/
-%config(noreplace) %ghost %{_datadir}/fwupdate/done
+#%attr(0755,root,root) %dir %{_datadir}/fwupdate/
+#%config(noreplace) %ghost %{_datadir}/fwupdate/done
 %attr(0755,root,root) %dir %{_libexecdir}/fwupdate/
 %{_libexecdir}/fwupdate/cleanup
 
