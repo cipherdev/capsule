@@ -1,0 +1,5 @@
+- Compile efivar RPM package
+rpmbuild --define "%_topdir `pwd`" --without debug --without debuginfo --without tools --without perf -ba SPECS/efivar.spec
+
+- Compile fwupdate RPM package
+rpmbuild --define "%_topdir `pwd`" --without debug --without debuginfo --without tools --without perf -ba SPECS/fwupdate.spec
