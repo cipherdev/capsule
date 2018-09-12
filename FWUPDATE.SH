@@ -21,7 +21,7 @@ main(){
 		yum groupinstall -y "Development Tools"
 		yum install -y gcc make wget elfutils* gnu-efi* popt*
 		echo "Install efivar and fwupdate"
-		pushd package/centos7.5
+		pushd package/rpms
 		rpm -ivh --force *.rpm;popd
 	elif [ -f /etc/oracle-release ]; then
 		echo "Install the tools to development on Oracle Linux"
@@ -32,7 +32,7 @@ main(){
 		# Install the package from repo
 		yum install -y gnu-efi* elfutils* popt* libfwup*
 		echo "Install efivar and fwupdate"
-		pushd package/oracle7.5
+		pushd package/rpms
 		rpm -ivh --force *.rpm;popd
 	elif [ -f /etc/lsb_release ]; then
 		echo "Doesn't support"
